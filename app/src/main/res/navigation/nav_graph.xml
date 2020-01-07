@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteListFragment">
+
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.gocheck.com.noteapp.ui.NoteListFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_note_list" >
+        <action
+            android:id="@+id/to_newNoteFragment"
+            app:destination="@id/to_newNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/to_newNoteFragment"
+        android:name="com.gocheck.com.noteapp.ui.NewNoteFragment"
+        android:label="Add New Note"
+        tools:layout="@layout/fragment_new_note" >
+        <action
+            android:id="@+id/to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+        <argument
+            android:name="Note"
+            app:argType="com.gocheck.com.noteapp.database.Note"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
